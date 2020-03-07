@@ -1,0 +1,35 @@
+@import "mixins";
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+$main-color: rebeccapurple;
+
+body {
+    background-color: rgba($main-color, 0.3);
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    color: $main-color;
+    
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-direction: column;
+
+    @include media-query-for('tablet'){
+        flex-direction: row;
+    }
+    li{
+        color: royalblue;
+        padding: 1rem;
+    }
+    @for $i from 1 through 3 {
+        li:nth-child(3n + #{$i}) {
+          background-color: lighten($main-color, 50% - $i * 5%);
+        }
+      }
+}

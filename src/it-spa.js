@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css';
+import 'font-awesome/css/font-awesome.css';
 //import './it-spa.css';
-import './it-spa.scss';
+import './sass/it-spa.scss';
 import $ from 'jquery';  // Import referencji "$" z pakietu jquery
 import { Router } from './router/router';
 import { nav } from './navigation/nav';
