@@ -8,7 +8,7 @@ export const rooms = () => {
     return roomsService.getRooms().then(rooms=>{
         return fragment
         .append('<h2>Rooms</h2>')
-        .append('<i class="fas fa-accessible-icon"></i>')
+        .append('<i class="glyphicon glyphicon-cloud"></i>')
         .append(roomsList(rooms))
         .append('<p>Lorem ipsum dolor sit amte...</p>');
     });

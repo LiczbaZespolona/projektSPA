@@ -10,7 +10,7 @@ export const treatments = () => {
             .append('<h2>Treatments</h2>')
             .append('<i class="fas fa-coffee"></i>')
             .append(treatmentsList(treatments))
-            .append('<p>Lorem ipsum');
+            .append('<p>Lorem ipsum </p>');
     });
 
 }
