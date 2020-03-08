@@ -1,9 +1,11 @@
 import $ from 'jquery';
+import male from './../../image/male.png'
+import female from './../../image/female.png'
 
 export const commentsListItem = (comment) => {
-    let image = 'https://www.w3schools.com/bootstrap4/img_avatar3.png';
-    if (comment.sex === 'f') image = 'https://www.w3schools.com/bootstrap4/img_avatar4.png';
-
+    // let image = 'https://www.w3schools.com/bootstrap4/img_avatar3.png';
+    let image = male;
+    if (comment.sex === 'f') image = female;
     const media = $('<div class="media border rounded-lg m-2 p-3">'
         + `<img src="${image}" alt="${comment.name}" class="mr-3 mt-2 rounded-circle" style="width:60px;">`
         + '<div class="media-body">'
