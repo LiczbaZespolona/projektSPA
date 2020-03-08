@@ -8,7 +8,7 @@ export const treatments = () => {
     return treatmentsService.getTreatments().then(treatments => {
         return fragment
             .append('<h2>Treatments</h2>')
-            .append('<i class="fab fa-accessible-icon"></i>')
+            .append('<i class="fas fa-coffee"></i>')
             .append(treatmentsList(treatments))
             .append('<p>Lorem ipsum');
     });

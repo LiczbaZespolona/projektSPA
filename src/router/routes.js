@@ -1,8 +1,9 @@
-import {home, rooms, treatments, booking} from '../views';
+import {home, rooms, treatments, booking, comments} from '../views';
 
 export const routes = [
     {name:'Home', path: '/', data: {}, component: home },
     {name:'Rooms', path: '/rooms', data: {}, component: rooms },
     {name:'Treatment', path: '/treatments', data: {}, component: treatments },
-    {name:'Booking', path: '/booking', data: {}, component: booking }
+    {name:'Booking', path: '/booking', data: {}, component: booking },
+    {name:'Comments', path: '/comments', data: {}, component: comments }
 ];
