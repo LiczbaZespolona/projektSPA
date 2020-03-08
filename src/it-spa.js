@@ -5,6 +5,7 @@ import './sass/it-spa.scss';
 import $ from 'jquery';  // Import referencji "$" z pakietu jquery
 import { Router } from './router/router';
 import { nav } from './navigation/nav';
+import { itSpaCart } from './cart/it-spa-cart';
 
 const main = $('main'); //Outlet na zmieniającą się treść
 
@@ -16,5 +17,5 @@ router.init();
 
 main.before(nav()); //podpięcie manu navigacji na początek strony przed outlet
 
-
+main.after(itSpaCart());    //podpięcie koszyka
 

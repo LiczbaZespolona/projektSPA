@@ -80,6 +80,22 @@
       "time": 45,
       "price": 120
     }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "date": "February 19, 2020",
+      "sex": "m",
+      "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    },
+    {
+      "id": 2,
+      "name": "Jane Doe",
+      "date": "February 20, 2020",
+      "sex": "f",
+      "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    }
   ]
 }
  

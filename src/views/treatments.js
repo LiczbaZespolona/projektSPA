@@ -1,11 +1,16 @@
 import $ from 'jquery';
+import { treatmentsService } from '../common/treatments-service';
+import { treatmentsList } from './treatments-list'
 
 export const treatments = () => {
     const fragment = $(new DocumentFragment());
 
-    fragment
-        .append('<h2>Treatments</h2>')
-        .append('<p>Lorem ipsum dolor sit amte...</p>');
+    return treatmentsService.getTreatments().then(treatments => {
+        return fragment
+            .append('<h2>Treatments</h2>')
+            .append('<i class="fas fa-coffee"></i>')
+            .append(treatmentsList(treatments))
+            .append('<p>Lorem ipsum </p>');
+    });
 
-        return Promise.resolve(fragment);
 }
