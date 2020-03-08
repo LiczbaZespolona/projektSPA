@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import { commentsService } from '../common/comments-service';
 import { commentsList } from './comments-list';
+import { commentsForm } from './commants-form';
 
 
 export const comments = () => {
@@ -10,6 +11,6 @@ export const comments = () => {
         return fragment
         .append('<h2>Comments</h2>')
         .append(commentsList(comments))
-        .append('<p>Add comment.<a>');
+        .append(commentsForm());
     })
 }
