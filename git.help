@@ -1,0 +1,51 @@
+git add .
+git config --global user.name "LiczbaZespolona"
+git commit -m "Initial commit"
+git log --oneline
+git status
+git remote add origin https://github.com/LiczbaZespolona/git_test
+git pull origin master // Pobranie zdalnego origin do lokalnego mastera
+git push -u origin master
+
+// Przechowywanie uwierzytelniania
+git config --global credential.helper store
+// Przechowywanie uwierzytelniania w chcheu przez 60 minut
+git config --global credential.helper cache
+git config --global credential.helper 'cache --timeout=3600'
+
+git remote -v // Lista urzywanych serwerów
+git remote add [skrót] [url]
+git remote add kawa https://github.com/LiczbaZespolona/KawaZCiastkiem
+git fetch kawa  // Pobiera repozytorium o skrócie kawa
+
+git push [nazwa-zdalnego-repo] [nazwa-gałęzi]
+git pull origin master
+git push origin master
+
+
+git branch --list -v // Wyświetla aktualną gałęź
+git branch develop  // Gałęź developerska
+git checkout -b release // Tworzy nową gałąź release i przełącza na nią
+
+git diff f987f85 57fa8d6<------>// Porównuje dwa konkretne commity
+git diff master develop>// Porównanie dwuch gałęzi
+git diff --cached<----->// Zmiany przed commitem
+git log --oneline --graph --decorate<-->// Rysuje drzewo commitów
+git push origin develop>// Wysłanie gałęzi develop na githuba
+git stash<----->//zapisanie stanu pracy na sagingu przed zmianą brancha
+
+git fetch origin master>// pobiera zawartość origina NIE NADPISUJE
+git diff origin/master<>// wyświetla różnice.
+git merge <---->// auto-merging - łączenie różnic w plikach
+
+git stash show  -v<---->// Sprawdzenie zawartości stash'a
+git stash apply>// Wprowadzenie zmian ze stash'a
+git merge develop<----->// Połączenie developa do aktualnego brencha
+git commit -a -m "połączenie developera do mastera"
+
+git branch -d develop<->//usuwa niepotrzebną gałęź
+
+git tag v.1.0
+git tag -l
+git push --tags
+git checkout v.1.0
