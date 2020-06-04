@@ -1,35 +1,37 @@
 @import "mixins";
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 
-$main-color: rebeccapurple;
+$main-color: #eee;
+$text-color: rgb(10, 10, 100);
 
 body {
-    background-color: rgba($main-color, 0.3);
-    font-family: 'Roboto', sans-serif;
+  background-color: rgba($main-color, 0.3);
+  font-family: "Roboto", sans-serif;
 }
 
 h1 {
-    color: $main-color;
-    
+  color: $main-color;
 }
 
 ul {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    flex-direction: column;
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-direction: column;
 
-    @include media-query-for('tablet'){
-        flex-direction: row;
+  @include media-query-for("tablet") {
+    flex-direction: row;
+  }
+
+  div > li {
+    color: rgb(3, 43, 161);
+    padding: 1rem;
+  }
+  @for $i from 1 through 3 {
+    li:nth-child(3n + #{$i}) {
+      background-color: lighten($text-color, 50% - $i * 5%);
+      color: $main-color;
     }
-    li{
-        color: royalblue;
-        padding: 1rem;
-    }
-    @for $i from 1 through 3 {
-        li:nth-child(3n + #{$i}) {
-          background-color: lighten($main-color, 50% - $i * 5%);
-        }
-      }
+  }
 }

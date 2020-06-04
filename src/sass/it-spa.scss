@@ -2,11 +2,11 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 @import "mixins";
 
-$main-color: rgb(7, 36, 36);
+$main-color: #eee;
 
 body {
   background-color: $main-color;
-  color: lightblue;
+  color: darkblue;
 }
 
 .room-list {
@@ -25,4 +25,15 @@ body {
   li:nth-child(3n + #{$i}) {
     background-color: lighten($main-color, 15% + $i * 5%);
   }
+}
+
+.exerciseContent {
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.operation {
+  margin: 5px;
+  display: inline-block;
 }
