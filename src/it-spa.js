@@ -7,6 +7,7 @@ import { Router } from "./router/router";
 import { nav } from "./navigation/nav";
 import { itSpaCart } from "./cart/it-spa-cart";
 import { exercise } from "./exercise/exercise";
+import { init } from "./exercise/actions";
 
 const main = $("main"); //Outlet na zmieniającą się treść
 
@@ -19,4 +20,7 @@ router.init();
 main.before(nav()); //podpięcie manu navigacji na początek strony przed outlet
 
 main.after(exercise());
+
+init();
+
 main.after(itSpaCart()); //podpięcie koszyka

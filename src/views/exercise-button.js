@@ -6,3 +6,8 @@ export const exerciseButton = (num) => {
   anchor.on("click", () => anchor.trigger("digitPresed", { digit: num }));
   return anchor;
 };
+export const exerciseBigButton = (num, action) => {
+  const anchor = $(`<a class="btn btn-success btn-block mb-2" role="button" id="btn${num}"></a>`);
+  anchor.on("click", () => anchor.trigger(action, {}));
+  return anchor;
+};

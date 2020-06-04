@@ -16,16 +16,12 @@ export const nav = () => {
   const collapsibleDiv = $('<div class="collapse navbar-collapse" id="mainNavbar"></div>');
   collapsibleDiv.append(unorderedList);
   navbar.append(collapsibleDiv);
+  navbar.append('<h2 id="rachmistrz"></h2>');
 
-  //const bookingNavItem = navItem("Booking", () => navbar.trigger(routeChange, {path: '/booking'}));   //Emitowanie zdarzenia przez element po kliknięciu
-  // mapowanie kolejnych elementów routes na pozycje menu
+  // mapowanie kolejnych elementów pozycje menu z trigerami dla routera
   routes.map((route) => {
     if (route.display) navbar.find("ul").append(navItem(route.name, () => navbar.trigger(routeChange, { path: route.path }))); //Podczepienie pozycji menu do menu
   });
-  // const navItems = routes.map( (route) => {
-  //     return navItem(route.name, () => navbar.trigger(routeChange, {path: route.path}));    //Podczepienie pozycji menu do menu
-  // });
-  // navbar.find('ul').append(navItems);
 
   return navbar;
 };

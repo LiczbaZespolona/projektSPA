@@ -15,21 +15,21 @@ var answare = {};
 
 var cookiesOn = false;
 
-function start() {
-  var time;
-  //    time = document.getElementById("myInput").value;
+export function start() {
+  let time;
   leftSecounds = Math.floor($("#myInput").val() * 60);
   testLength = leftSecounds;
   contestStarted = 1;
-  //  alert("Czas start masz "+(leftSecounds/60)+" minut!");
   $("#btnStart").addClass("disabled");
   $("#btnNext").removeClass("disabled");
   $("#myInput").val(0);
   $("#btnNext").focus();
-  $("#rachmistrz").html("Rachmistrz");
+  $("#rachmistrz").html("Do boju!");
   $("#rachmistrz").unbind("click", showAnswares);
   answares = [];
   answare = {};
+  goodAnsware = 0;
+  badAnsware = 0;
   myInterval = setInterval(leftTime, 1000);
   fillOperation();
   if (cookiesOn) {
@@ -46,7 +46,7 @@ function start() {
 function leftTime() {
   leftSecounds--;
   $("#myTimer").html(Math.floor(leftSecounds / 60) + ":" + (leftSecounds - 60 * Math.floor(leftSecounds / 60)));
-  if (leftSecounds == 0) {
+  if (leftSecounds <= 0) {
     clearInterval(myInterval);
     $("#btnStart").removeClass("disabled");
     $("#btnNext").addClass("disabled");
@@ -64,15 +64,13 @@ function leftTime() {
     }
     $("#rachmistrz").css("color", "green");
     alert("Czas minął!! Dobrych:" + goodAnsware + " i złych:" + badAnsware);
-    $("#rachmistrz").html("Rachmistrz (" + goodAnsware + "/" + (goodAnsware + badAnsware) + ") w " + testLength + "sek.");
+    $("#rachmistrz").html("RachMistrz (" + goodAnsware + "/" + (goodAnsware + badAnsware) + ") w " + testLength + " sek.");
     $("#rachmistrz").bind("click", showAnswares);
     goodAnsware = 0;
     badAnsware = 0;
-    $("#myInput").val(5);
+    $("#myInput").val();
     $("#myDigit1").html("?");
-    //        $("#myOperator").html('&#8901;');
     $("#myDigit2").html("?");
-    //location.reload();
   }
   return;
 }
@@ -93,10 +91,10 @@ function showAnswares() {
 }
 
 export function digitPresed(digit) {
-  if (digit != "dot" && digit != "back") {
+  if (digit != "Dot" && digit != "Back") {
     if ($("#myInput").val() == "0") $("#myInput").val(digit);
     else $("#myInput").val($("#myInput").val().toString() + digit);
-  } else if (digit == "dot") {
+  } else if (digit == "Dot") {
     $("#myInput").val($("#myInput").val() + ".");
   } else {
     $("#myInput").val(
@@ -113,29 +111,27 @@ export function digitPresed(digit) {
 function keyPressed(event) {
   let x = event.which || event.keyCode;
   if (x >= 48 && x <= 57) digitPresed(x - 48);
-  else if (x == 44) digitPresed("dot");
+  else if (x == 44) digitPresed("Dot");
   else if (x == 8) {
-    digitPresed("back");
+    digitPresed("Back");
     event.preventDefault();
-  } else if (x == 13 && contestStarted == 1);
-  else if (x == 13 && contestStarted == 0)
-    //next();
-    start();
+  } else if (x == 13 && contestStarted == 1) next();
+  else if (x == 13 && contestStarted == 0) start();
   return;
 }
 
-function init() {
+export function init() {
   $("#myInput").val(5);
   $("#myInput").focus();
   $(document).bind("keydown keypress", (event) => {
     let rx = /INPUT|SELECT|TEXTAREA/i;
     if (!rx.test(event.target.tagName) || event.target.disabled || event.target.readOnly) keyPressed(event);
   });
-  document.getElementById("rememberMe").addEventListener("click", (event) => saveCookie(event));
+  //document.getElementById("rememberMe").addEventListener("click", (event) => saveCookie(event));
   return;
 }
 
-function next() {
+export function next() {
   checkResult();
   fillOperation();
   $("#myInput").val(0);
