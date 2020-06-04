@@ -1,29 +1,28 @@
 //@import 'fonfont-awesome/scss/font-awesome.scss';
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 @import "mixins";
 
 $main-color: rgb(7, 36, 36);
 
 body {
-    background-color: $main-color;
-    color: lightblue;
+  background-color: $main-color;
+  color: lightblue;
 }
 
 .room-list {
-    background-color: aquamarine;
+  background-color: aquamarine;
 }
 
 .room-list-item {
-    background-color: dimgrey;
+  background-color: dimgrey;
 }
 
 .text-footer {
-    margin: 24px 50px;
+  margin: 24px 50px;
 }
 
-@for $i from 1 through 4 {
-    li:nth-child(3n + #{$i}) {
-      background-color: lighten($main-color, 20% + $i * 5%);
-    }
+@for $i from 1 through 5 {
+  li:nth-child(3n + #{$i}) {
+    background-color: lighten($main-color, 15% + $i * 5%);
   }
-  
+}
