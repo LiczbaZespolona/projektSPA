@@ -1,9 +1,10 @@
-import {home, rooms, treatments, booking, comments} from '../views';
+import { home, myScore, scores, exercise, comments, addComment } from "../views";
 
 export const routes = [
-    {name:'Home', path: '/', data: {}, component: home },
-    {name:'Rooms', path: '/rooms', data: {}, component: rooms },
-    {name:'Treatment', path: '/treatments', data: {}, component: treatments },
-    {name:'Booking', path: '/booking', data: {}, component: booking },
-    {name:'Comments', path: '/comments', data: {}, component: comments }
+  { display: true, name: "Start", path: "/", data: {}, component: home },
+  { display: true, name: "Ćwiczenia", path: "/exercise", data: {}, component: exercise },
+  { display: true, name: "Moje wyniki", path: "/myscores", data: {}, component: myScore },
+  { display: true, name: "Tabela wyników", path: "/scors", data: {}, component: scores },
+  { display: true, name: "Comments", path: "/comments", data: {}, component: comments },
+  { display: false, name: "AddComments", path: "/addcomment", data: {}, component: addComment },
 ];
