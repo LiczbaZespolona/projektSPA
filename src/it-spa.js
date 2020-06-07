@@ -5,7 +5,7 @@ import "./sass/it-spa.scss";
 import $ from "jquery"; // Import referencji "$" z pakietu jquery
 import { Router } from "./router/router";
 import { nav } from "./navigation/nav";
-import { itSpaCart } from "./cart/it-spa-cart";
+import { usernameCookie } from "./cookies/usernameCookie";
 import { exercise } from "./exercise/exercise";
 import { init } from "./exercise/actions";
 
@@ -23,4 +23,4 @@ main.after(exercise());
 
 init();
 
-main.after(itSpaCart()); //podpięcie koszyka
+main.after(usernameCookie()); //podpięcie koszyka
