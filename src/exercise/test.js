@@ -33,10 +33,10 @@ export class Test {
     this.setDuration(0);
     this.setGoodAnswers(0);
     this.setBadAnswers(0);
-    this.exercise = [];
+    this.exercises = [];
   }
   getScore() {
-    score = {
+    return {
       start: this.start,
       end: this.end,
       duration: this.duration,
@@ -44,7 +44,5 @@ export class Test {
       badAnswers: this.badAnswers,
       exercises: this.exercises,
     };
-
-    return score;
   }
 }

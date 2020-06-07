@@ -1,6 +1,7 @@
 import $ from "jquery";
 import { Test } from "./test";
 import { fillWithZero } from "../common/time";
+import { addUserScoreCookie } from "../cookies/scoreCookie";
 
 var leftSecounds;
 var myInterval;
@@ -58,7 +59,8 @@ function leftTime() {
     test.setEnd();
     test.setGoodAnswers(goodAnsware);
     test.setBadAnswers(badAnsware);
-    console.warn(test);
+    // console.warn(test.getScore());
+    addUserScoreCookie(test.getScore());
     $("#btnStart").removeClass("disabled");
     $("#btnNext").addClass("disabled");
     contestStarted = 0;
@@ -119,7 +121,8 @@ export function digitPresed(digit) {
   return;
 }
 
-function keyPressed(event) {
+export function keyPressed(event) {
+  // console.log(event);
   let x = event.which || event.keyCode;
   if (x >= 48 && x <= 57) digitPresed(x - 48);
   else if (x == 44) digitPresed("Dot");
@@ -132,13 +135,14 @@ function keyPressed(event) {
 }
 
 export function init() {
+  // console.warn("Init()");
   $("#myInput").val(5);
   $("#myInput").focus();
-  $(document).bind("keydown keypress", (event) => {
+  // $(document).bind("keydown keypress", (event) => {
+  $(document).bind("keypress", (event) => {
     let rx = /INPUT|SELECT|TEXTAREA/i;
     if (!rx.test(event.target.tagName) || event.target.disabled || event.target.readOnly) keyPressed(event);
   });
-  //document.getElementById("rememberMe").addEventListener("click", (event) => saveCookie(event));
   return;
 }
 

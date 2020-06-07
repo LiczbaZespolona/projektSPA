@@ -6,7 +6,7 @@ import $ from "jquery"; // Import referencji "$" z pakietu jquery
 import { Router } from "./router/router";
 import { nav } from "./navigation/nav";
 import { usernameCookie } from "./cookies/usernameCookie";
-import { scoreCookie } from "./cookies/scoreCookie";
+import { scoresCollapse } from "./views/myscores-events";
 import { exercise } from "./exercise/exercise";
 import { init } from "./exercise/actions";
 
@@ -25,3 +25,4 @@ main.after(exercise());
 init();
 
 main.after(usernameCookie()); //podpięcie nicka gracza
+main.after(scoresCollapse()); //podpięcie eventow na wynikach

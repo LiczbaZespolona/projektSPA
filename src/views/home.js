@@ -42,5 +42,6 @@ export const home = () => {
     buttonForget.hide();
     input.val("");
   }
+
   return Promise.resolve(fragment);
 };

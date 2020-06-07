@@ -5,7 +5,7 @@ import { getUsernameCookie } from "./usernameCookie";
 const cookieScore = new Cookie(`${getUsernameCookie()}_SCORE`);
 
 export const getUserScoreCookie = () => {
-  const score = [];
+  let score = [];
   score = cookieScore.get();
   return score;
 };
@@ -16,9 +16,9 @@ export const emptyUserScoreCookie = () => {
 };
 
 export const addUserScoreCookie = (newscore) => {
-  const oldscores = [];
+  let oldscores = [];
   oldscores = cookieScore.get();
-  const newscores = oldscores.concat(newscore);
-  cookieScore.set(newscores);
+  oldscores.push(newscore);
+  cookieScore.set(oldscores);
   return true;
 };

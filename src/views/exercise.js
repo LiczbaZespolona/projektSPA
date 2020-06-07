@@ -31,6 +31,7 @@ export const exercise = () => {
     .append('<div style="clear:both;min-height: 5px;"></div>');
   content.append(digits);
   section.append(content);
-  section.on("load", () => anchor.trigger("exerciseLoaded", {}));
+  section.on("keydown", () => anchor.trigger("keyPresed", {}));
+  // section.on("load", () => anchor.trigger("exerciseLoaded", {}));
   return Promise.resolve(section);
 };

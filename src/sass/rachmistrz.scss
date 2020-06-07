@@ -9,14 +9,6 @@ body {
   color: darkblue;
 }
 
-.room-list {
-  background-color: aquamarine;
-}
-
-.room-list-item {
-  background-color: dimgrey;
-}
-
 .text-footer {
   margin: 24px 50px;
 }
@@ -36,4 +28,8 @@ body {
 .operation {
   margin: 5px;
   display: inline-block;
+}
+
+.score-item:hover {
+  cursor: pointer;
 }

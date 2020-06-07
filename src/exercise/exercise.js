@@ -4,6 +4,10 @@ import { digitPresed, start, next, init } from "./actions";
 export const exercise = () => {
   const fragment = $(new DocumentFragment());
   // Nasłuchiwanie zdarzenia
+  $(document.body).on("keyPresed", (event, detail) => {
+    // digitPresed(detail.digit);
+    keyPressed(event);
+  });
   $(document.body).on("digitPresed", (event, detail) => {
     digitPresed(detail.digit);
   });
