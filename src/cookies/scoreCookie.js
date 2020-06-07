@@ -1,13 +1,24 @@
 import $ from "jquery"; // Import referencji "$" z pakietu jquery
 import { Cookie } from "./cookie";
+import { getUsernameCookie } from "./usernameCookie";
 
-export const userScoreCookie = (name) => {
-  const cookie = new Cookie(`${name}_SCORE`);
-  const fragment = $(new DocumentFragment());
+const cookieScore = new Cookie(`${getUsernameCookie()}_SCORE`);
 
-  $(document.body).on("save-score", (event, detail) => {
-    cart.set(detail.name);
-  });
+export const getUserScoreCookie = () => {
+  const score = [];
+  score = cookieScore.get();
+  return score;
+};
 
-  return fragment;
+export const emptyUserScoreCookie = () => {
+  cookieScore.empty();
+  return true;
+};
+
+export const addUserScoreCookie = (newscore) => {
+  const oldscores = [];
+  oldscores = cookieScore.get();
+  const newscores = oldscores.concat(newscore);
+  cookieScore.set(newscores);
+  return true;
 };

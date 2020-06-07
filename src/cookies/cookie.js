@@ -3,7 +3,7 @@ export class Cookie {
     this.cookieName = name; //Nazwa ciasteczka
   }
   cookie() {
-    const cookies = document.cookie.split(";"); //ciąg tekstowy na tablica ciasteczek
+    const cookies = document.cookie.split("; "); //ciąg tekstowy na tablica ciasteczek
     const myCookie = cookies.find((cookie) => cookie.startsWith(this.cookieName)); //moje ciasteczko z pozostałych
     return myCookie; //Zwraca ciasteczko lub undefined
   }

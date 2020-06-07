@@ -1,4 +1,6 @@
 import $ from "jquery";
+import { Test } from "./test";
+import { fillWithZero } from "../common/time";
 
 var leftSecounds;
 var myInterval;
@@ -14,6 +16,8 @@ var answares = [];
 var answare = {};
 
 var cookiesOn = false;
+
+var test = new Test();
 
 export function start() {
   let time;
@@ -31,6 +35,9 @@ export function start() {
   goodAnsware = 0;
   badAnsware = 0;
   myInterval = setInterval(leftTime, 1000);
+  test.empty();
+  test.setStart();
+  test.setDuration(leftSecounds);
   fillOperation();
   if (cookiesOn) {
     $.post("http://matma3.magusz.net/api/v0/remember.php", "user=" + name + "&level=" + level, function (data, status, result) {
@@ -45,9 +52,13 @@ export function start() {
 
 function leftTime() {
   leftSecounds--;
-  $("#myTimer").html(Math.floor(leftSecounds / 60) + ":" + (leftSecounds - 60 * Math.floor(leftSecounds / 60)));
+  $("#myTimer").html(Math.floor(leftSecounds / 60) + ":" + fillWithZero(leftSecounds - 60 * Math.floor(leftSecounds / 60)));
   if (leftSecounds <= 0) {
     clearInterval(myInterval);
+    test.setEnd();
+    test.setGoodAnswers(goodAnsware);
+    test.setBadAnswers(badAnsware);
+    console.warn(test);
     $("#btnStart").removeClass("disabled");
     $("#btnNext").addClass("disabled");
     contestStarted = 0;
@@ -158,6 +169,8 @@ function checkResult() {
     let digit1 = $("#myDigit1").html();
     let digit2 = $("#myDigit2").html();
     let result = $("#myInput").val();
+
+    test.addExercise([{ a: digit1, b: digit2, answer: result }]);
 
     if (result == digit1 * digit2) goodAnsware++;
     else badAnsware++;

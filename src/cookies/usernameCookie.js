@@ -1,21 +1,27 @@
 import $ from "jquery"; // Import referencji "$" z pakietu jquery
 import { Cookie } from "./cookie";
 
+const cookieNick = new Cookie("USER_NAME");
+
 export const usernameCookie = () => {
-  const cookie = new Cookie("USER_NAME");
   const fragment = $(new DocumentFragment());
 
-  // fragment.append('<span id="basket">Pusty koszyk</span>').find("#basket").text(cookie.get());
+  $(document.body).on("name-remember", (event, detail) => {
+    cookieNick.set($("#nick").val());
+    $("#buttonRemember").hide();
+    $("#buttonForget").show();
+  });
 
-  // Nasłuchiwanie zdarzenia thumbs up od komentarza
-  // $(document.body).on("thumbs-up-click", (event, detail) => {
-  //   //console.log(event);
-  //   //console.warn(detail);
-  //   $("#basket").text("klik od " + detail.comment);
-  // });
-  $(document.body).on("name-added", (event, detail) => {
-    cart.set(detail.name);
+  $(document.body).on("name-forget", (event, detail) => {
+    cookieNick.empty();
+    $("#buttonRemember").show();
+    $("#buttonForget").hide();
+    $("#nick").val("");
   });
 
   return fragment;
+};
+
+export const getUsernameCookie = () => {
+  return cookieNick.get();
 };
