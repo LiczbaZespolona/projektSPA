@@ -1,13 +1,11 @@
 import $ from "jquery";
-import { treatmentsListItem } from "./scores-list-item";
+import { scoresListItem } from "./scores-list-item";
 
-export const scoresList = (treatments) => {
-  const ul = $('<ul class="list-group treatments-list"></ul>');
+export const scoresList = (scores) => {
+  const ul = $('<ul class="list-group scores-list"></ul>');
 
   // podczepiam do listy kolejne zmapowane pozycje
-  treatments
-    .map((treatment) => treatmentsListItem(treatment))
-    .map((treatmentsListItems) => ul.append(treatmentsListItems));
+  scores.map((score) => scoresListItem(score)).map((scoresListItems) => ul.append(scoresListItems));
 
   return ul;
 };

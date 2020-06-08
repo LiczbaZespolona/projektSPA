@@ -1,7 +1,7 @@
 import $ from "jquery";
 
-export const scoresListItem = (treatment) => {
-  const li = $('<li class="list-group-item treatment-list-item"></li>');
-  li.text(treatment.name);
+export const scoresListItem = (score) => {
+  const li = $('<li class="list-group-item scores-list-item"></li>');
+  li.text(score.nick + " " + score.datetime + " " + score.score);
   return li;
 };

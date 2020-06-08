@@ -2,6 +2,8 @@ import $ from "jquery";
 import { Test } from "./test";
 import { fillWithZero } from "../common/time";
 import { addUserScoreCookie } from "../cookies/scoreCookie";
+import { getUsernameCookie } from "../cookies/usernameCookie";
+import { apiUrl } from "../common/api-url";
 
 var leftSecounds;
 var myInterval;
@@ -38,13 +40,11 @@ export function start() {
   myInterval = setInterval(leftTime, 1000);
   test.empty();
   test.setStart();
-  test.setDuration(leftSecounds);
+  test.setDuration(testLength);
   fillOperation();
-  if (cookiesOn) {
-    $.post("http://matma3.magusz.net/api/v0/remember.php", "user=" + name + "&level=" + level, function (data, status, result) {
-      $("#rachmistrz").css("color", "red");
-      //console.log(data);
-      //alert("DAta: "+data+"\nRESPONSE:" + data.id );
+  if (getUsernameCookie().length > 0) {
+    $.post(apiUrl + "register.php", "nick=" + getUsernameCookie() + "&time=" + test.getStart(), function (data, status, result) {
+      console.log("Register: " + data);
       userId = data.id;
     });
   }
@@ -65,13 +65,11 @@ function leftTime() {
     $("#btnNext").addClass("disabled");
     contestStarted = 0;
     if (userId > 0) {
-      $("#rachmistrz").css("color", "blue");
-      $.post("http://matma3.magusz.net/api/v0/result.php", "id=" + userId + "&tl=" + testLength + "&pos=" + goodAnsware + "&neg=" + badAnsware, function (
+      $.post(apiUrl + "result.php", "id=" + userId + "&nick=" + getUsernameCookie() + "&tl=" + testLength + "&pos=" + goodAnsware + "&neg=" + badAnsware, function (
         data,
         status,
         result
       ) {
-        $("#rachmistrz").css("color", "blue");
         // alert("Data: " + data + "\nStatus: "+ status + "\nResult: " + result);
       });
     }

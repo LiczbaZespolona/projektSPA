@@ -1,15 +1,12 @@
 import $ from "jquery";
-import { treatmentsService } from "../common/treatments-service";
-import { treatmentsList } from "./scores-list";
+import { scoresService } from "../common/scores-service";
+import { scoresList } from "./scores-list";
 
 export const scores = () => {
   const fragment = $(new DocumentFragment());
 
-  return treatmentsService.getTreatments().then((treatments) => {
-    return fragment
-      .append("<h2>Treatments</h2>")
-      .append('<i class="fas fa-coffee"></i>')
-      .append(treatmentsList(treatments))
-      .append("<p>Lorem ipsum </p>");
+  return scoresService.getScores().then((scores) => {
+    // console.warn(scores);
+    return fragment.append("<h2>Tabela wyników</h2>").append(scoresList(scores)).append("<p>Lorem ipsum </p>");
   });
 };

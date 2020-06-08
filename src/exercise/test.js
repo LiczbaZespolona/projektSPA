@@ -12,11 +12,17 @@ export class Test {
   setStart() {
     this.start = getDateTime();
   }
+  getStart() {
+    return this.start;
+  }
   setEnd() {
     this.end = getDateTime();
   }
   setDuration(duration) {
     this.duration = duration;
+  }
+  getDuration() {
+    return this.duration;
   }
   setGoodAnswers(goodAnswers) {
     this.goodAnswers = goodAnswers;
