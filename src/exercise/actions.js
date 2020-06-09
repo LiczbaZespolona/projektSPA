@@ -4,6 +4,7 @@ import { fillWithZero } from "../common/time";
 import { addUserScoreCookie } from "../cookies/scoreCookie";
 import { getUsernameCookie } from "../cookies/usernameCookie";
 import { apiUrl } from "../common/api-url";
+import { myScores } from "./../views/myscores";
 
 var leftSecounds;
 var myInterval;
@@ -74,7 +75,7 @@ function leftTime() {
       });
     }
     $("#rachmistrz").css("color", "green");
-    alert("Czas minął!! Dobrych:" + goodAnsware + " i złych:" + badAnsware);
+    //alert("Czas minął!! Dobrych:" + goodAnsware + " i złych:" + badAnsware);
     $("#rachmistrz").html("RachMistrz (" + goodAnsware + "/" + (goodAnsware + badAnsware) + ") w " + testLength + " sek.");
     $("#rachmistrz").bind("click", showAnswares);
     goodAnsware = 0;
@@ -82,6 +83,7 @@ function leftTime() {
     $("#myInput").val();
     $("#myDigit1").html("?");
     $("#myDigit2").html("?");
+    $("li#navItem_myscores>a").trigger("click");
   }
   return;
 }

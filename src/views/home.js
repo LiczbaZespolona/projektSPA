@@ -28,7 +28,7 @@ export const home = () => {
   content.append(buttonForget);
   const anchor = $('<a id="startNow" class="btn btn-lg btn-success text-light"></a>');
   anchor.text("Zacznij juz teraz!");
-  anchor.on("click", () => fragment.trigger(routeChange, { path: "/exercise" }));
+  anchor.on("click", () => $("li#navItem_exercise>a").trigger("click"));
   content.append(anchor);
   fragment.append(content);
 
