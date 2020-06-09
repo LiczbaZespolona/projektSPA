@@ -7,7 +7,7 @@ export const myScoresListItem = (score, index) => {
   const divHeader = $('<div class="card-header"></div>');
   const anchor = $(`<a class="card-link score-item" data-toggle="collapse"></a>`).text("Data testu: " + score.start);
   anchor.on("click", () => anchor.trigger("score-collapse", { id: index }));
-  const icon = $('<i class="fa fa-times text-danger" aria-hidden="true"></i>');
+  const icon = $('<i class="fa fa-times text-danger" aria-hidden="true" data-toggle="tooltip" title="Usuń podejście."></i>');
   icon.on("click", () => icon.trigger("score-remove", { id: index }));
   divHeader.append(anchor);
   divHeader.append(icon);

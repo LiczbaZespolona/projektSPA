@@ -12,6 +12,8 @@ export const scoresCollapse = () => {
   $(document.body).on("score-remove", (event, detail) => {
     removeUserScoreCookie(detail.id);
   });
-
+  $(document).ready(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+  });
   return fragment;
 };

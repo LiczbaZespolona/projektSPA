@@ -19,6 +19,39 @@ body {
   }
 }
 
+.homeContent {
+  width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#nick {
+  margin-left: 8px;
+  height: 32px;
+  border-radius: 5px;
+  border-width: 1px;
+  padding-left: 5px;
+}
+#buttonRemember {
+  display: block;
+  width: 240px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 12px;
+}
+#buttonForget {
+  display: block;
+  width: 240px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 12px;
+}
+#startNow {
+  display: block;
+  width: 240px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 12px;
+}
 .exerciseContent {
   width: 200px;
   margin-left: auto;
@@ -32,4 +65,18 @@ body {
 
 .score-item:hover {
   cursor: pointer;
+}
+.fa {
+  margin-left: 8px;
+}
+p.answear {
+  margin: 0px 8px;
+}
+
+span.text-big {
+  font-size: 24px;
+}
+
+h2 {
+  margin-left: 16px;
 }

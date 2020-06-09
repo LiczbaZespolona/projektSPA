@@ -4,13 +4,16 @@ import { getUsernameCookie } from ".././cookies/usernameCookie";
 
 export const home = () => {
   const fragment = $("<section></section>");
+  const content = $('<div class="homeContent"></div>');
+  content
+    .append('<h3 class="d-flex justify-content-center">RachMistrz wita!!</h3>')
+    .append('<p class="d-flex justify-content-center">Ćwicz z nami tabliczkę mnozenia.</p>')
+    .append('<p class="d-flex justify-content-center">Zmierz się z innymi i pokaż co potrafisz!</p>');
 
-  fragment.append("<h2>Rachmistrz wita!!</h2>").append("<p>Ćwicz z nami tabliczkę mnozenia.</p>").append("<p>Zmierz się z innymi i pokaż co potrafisz!</p>");
-
-  const div = $("<div></div>");
+  const div = $('<div class="d-flex justify-content-center"></div>');
   const label = $("<label></label>");
   label.text("Twój nick:");
-  const input = $('<input id="nick" placeholder=""></input>');
+  const input = $('<input id="nick" placeholder="nick"></input>');
   const buttonRemember = $('<a id="buttonRemember" class="btn btn-lg btn-success text-light"></a>');
   buttonRemember.text("Zapamiętaj mnie.");
   buttonRemember.on("click", () => div.trigger("name-remember", {}));
@@ -20,16 +23,14 @@ export const home = () => {
   buttonForget.on("click", () => div.trigger("name-forget", {}));
   label.append(input);
   div.append(label);
-  div.append(buttonRemember);
-  div.append(buttonForget);
-
-  fragment.append(div);
-  const anchor = $('<a class="btn btn-lg btn-success text-light"></a>');
+  content.append(div);
+  content.append(buttonRemember);
+  content.append(buttonForget);
+  const anchor = $('<a id="startNow" class="btn btn-lg btn-success text-light"></a>');
   anchor.text("Zacznij juz teraz!");
   anchor.on("click", () => fragment.trigger(routeChange, { path: "/exercise" }));
-  fragment.append(anchor);
-  //$(document).ready()
-  // $(document).on("ready", () => fragment.trigger("home-loaded", {}));
+  content.append(anchor);
+  fragment.append(content);
 
   const nick = getUsernameCookie();
   //console.log("nick:" + nick);

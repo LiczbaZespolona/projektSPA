@@ -11,6 +11,9 @@ export const getUserScoreCookie = () => {
   score = cookieScore.get();
   return score;
 };
+export const unsetUserScoreCookie = () => {
+  cookieScore = {};
+};
 
 export const emptyUserScoreCookie = () => {
   cookieScore.empty();
