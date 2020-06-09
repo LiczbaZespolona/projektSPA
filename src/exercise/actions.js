@@ -143,7 +143,6 @@ export function init() {
   // $(document).bind("keydown keypress", (event) => {
   // $(document).bind("keypress", (event) => {
   $(document).bind("keydown", (event) => {
-    console.warn("Init()" + event.which);
     let rx = /INPUT|SELECT|TEXTAREA/i;
     if (!rx.test(event.target.tagName) || event.target.disabled || event.target.readOnly) keyPressed(event);
   });

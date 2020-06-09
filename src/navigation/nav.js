@@ -5,9 +5,9 @@ import { routes } from "../router/routes";
 import logoImage from "./../../image/RachMistrzLogo.png";
 
 export const nav = () => {
-  const navbar = $(`<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top "></nav>`);
+  const navbar = $(`<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top p-0"></nav>`);
   const anchor = $('<a class="navbar-brand"></a>');
-  anchor.html(`<img src="${logoImage}" alt="Rachmistrz logo." class="mr-1 mt-1 logo">`);
+  anchor.html(`<img src="${logoImage}" alt="Rachmistrz logo." class="mr-1 mt-0 logo">`);
   anchor.on("click", () => navbar.trigger(routeChange, { path: "/" }));
   navbar.append(anchor);
   const button = $(
