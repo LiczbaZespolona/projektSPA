@@ -2,9 +2,10 @@ import $ from "jquery";
 
 export const myScoresListItemData = (score) => {
   const fragment = $(new DocumentFragment());
-  fragment.append(`<h5>Podejście zozpoczęte: <i>${score.end}</i>, zakończone <i>${score.end}</i></h5>`);
+  fragment.append(`<h5>Podejście zozpoczęte: <i><span class="text-primary">${score.start}</span></i></h5>`);
+  fragment.append(`<h5>Podejście zakończone: <i><span class="text-primary">${score.end}</span></i></h5>`);
   fragment.append(
-    `<h6>Długość podejścia: <i><span class="text-important text-big">${score.duration}</spam></i> sek., poprawnych odpowiedzi: <i><span class="text-success text-big">${score.goodAnswers}</span>, błędnych odpowiedzi: <i><span class="text-danger text-big">${score.badAnswers}</span></i></h6>`
+    `<h6>Długość podejścia: <i><span class="text-primary text-big">${score.duration}</spam></i> sek., poprawnych odpowiedzi: <i><span class="text-success text-big">${score.goodAnswers}</span>, błędnych odpowiedzi: <i><span class="text-danger text-big">${score.badAnswers}</span></i></h6>`
   );
   fragment.append(`<h6>Wykonane zadania:</h6>`);
 

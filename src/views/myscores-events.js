@@ -1,5 +1,6 @@
 import $ from "jquery"; // Import referencji "$" z pakietu jquery
 import { removeUserScoreCookie } from "./../cookies/scoreCookie";
+import { tooltip } from "bootstrap";
 
 export const scoresCollapse = () => {
   const fragment = $(new DocumentFragment());

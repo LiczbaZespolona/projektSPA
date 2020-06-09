@@ -2,7 +2,7 @@ import $ from "jquery";
 
 export const fillWithZero = (n) => {
   let ret = "00";
-  if (n < 9) ret = "0" + n;
+  if (n < 10) ret = "0" + n;
   else ret = n;
   return ret;
 };
