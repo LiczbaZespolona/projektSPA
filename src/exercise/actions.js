@@ -102,12 +102,14 @@ function showAnswares() {
 }
 
 export function digitPresed(digit) {
-  if (digit != "Dot" && digit != "Back") {
+  if (digit != "Dot" && digit != "Back" && digit != "Del") {
     if ($("#myInput").val() == "0") $("#myInput").val(digit);
     else $("#myInput").val($("#myInput").val().toString() + digit);
   } else if (digit == "Dot") {
     $("#myInput").val($("#myInput").val() + ".");
-  } else {
+  } else if (digit == "Del") {
+    $("#myInput").val("");
+  } else if (digit == "Back") {
     $("#myInput").val(
       $("#myInput")
         .val()
@@ -120,10 +122,12 @@ export function digitPresed(digit) {
 }
 
 export function keyPressed(event) {
-  // console.log(event);
+  //console.log(event);
   let x = event.which || event.keyCode;
   if (x >= 48 && x <= 57) digitPresed(x - 48);
-  else if (x == 44) digitPresed("Dot");
+  else if (x >= 96 && x <= 105) digitPresed(x - 96);
+  else if (x == 44 || x == 110) digitPresed("Dot");
+  else if (x == 46) digitPresed("Del");
   else if (x == 8) {
     digitPresed("Back");
     event.preventDefault();
@@ -134,10 +138,12 @@ export function keyPressed(event) {
 
 export function init() {
   // console.warn("Init()");
-  $("#myInput").val(5);
+  $("#myInput").val(1);
   $("#myInput").focus();
   // $(document).bind("keydown keypress", (event) => {
-  $(document).bind("keypress", (event) => {
+  // $(document).bind("keypress", (event) => {
+  $(document).bind("keydown", (event) => {
+    console.warn("Init()" + event.which);
     let rx = /INPUT|SELECT|TEXTAREA/i;
     if (!rx.test(event.target.tagName) || event.target.disabled || event.target.readOnly) keyPressed(event);
   });
