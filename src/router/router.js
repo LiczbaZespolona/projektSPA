@@ -38,7 +38,6 @@ export class Router {
         const li_str = "li#navItem_" + path.slice(1);
         $(".navbar-collapse>ul>li").removeClass("present-li");
         $(li_str).addClass("present-li");
-        console.log(li_str);
       });
     } else {
       this.outlet.empty().append(oops());

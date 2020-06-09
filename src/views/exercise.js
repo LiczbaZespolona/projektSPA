@@ -4,7 +4,7 @@ import { exerciseButton, exerciseBigButton } from "./exercise-button";
 export const exercise = () => {
   const section = $("<section></section>");
   const content = $('<div class="exerciseContent"></div>');
-  content.append('<h4 id="myTimer" class="text-center">Podaj czas testu.</h4>');
+  content.append('<h5 id="myTimer" class="text-center">Podaj czas testu.</h5>');
 
   const operation = $('<div id="myOperation" style="text-align: center;"><div id="wraper"></div></div>');
   operation

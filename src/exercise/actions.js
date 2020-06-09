@@ -44,7 +44,7 @@ export function start() {
   fillOperation();
   if (getUsernameCookie().length > 0) {
     $.post(apiUrl + "register.php", "nick=" + getUsernameCookie() + "&time=" + test.getStart(), function (data, status, result) {
-      console.log("Register: " + data);
+      // console.log("Register: " + data);
       userId = data.id;
     });
   }

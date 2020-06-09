@@ -10,12 +10,14 @@ export const usernameCookie = () => {
     cookieNick.set($("#nick").val());
     $("#buttonRemember").hide();
     $("#buttonForget").show();
+    $("#nick").attr("disabled", true);
   });
 
   $(document.body).on("name-forget", (event, detail) => {
     cookieNick.empty();
     $("#buttonRemember").show();
     $("#buttonForget").hide();
+    $("#nick").attr("disabled", false);
     $("#nick").val("");
   });
 

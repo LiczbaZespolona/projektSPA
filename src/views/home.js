@@ -13,7 +13,7 @@ export const home = () => {
   const div = $('<div class="d-flex justify-content-center"></div>');
   const label = $("<label></label>");
   label.text("Twój nick:");
-  const input = $('<input id="nick" placeholder="nick"></input>');
+  const input = $('<input id="nick" type="text" placeholder="nick"></input>');
   const buttonRemember = $('<a id="buttonRemember" class="btn btn-lg btn-success text-light"></a>');
   buttonRemember.text("Zapamiętaj mnie.");
   buttonRemember.on("click", () => div.trigger("name-remember", {}));
@@ -38,10 +38,12 @@ export const home = () => {
     buttonRemember.hide();
     buttonForget.show();
     input.val(nick);
+    input.attr("disabled", true);
   } else {
     buttonRemember.show();
     buttonForget.hide();
     input.val("");
+    input.attr("disabled", false);
   }
 
   return Promise.resolve(fragment);
