@@ -22,7 +22,7 @@ export const nav = () => {
 
   // mapowanie kolejnych elementów pozycje menu z trigerami dla routera
   routes.map((route) => {
-    if (route.display) navbar.find("ul").append(navItem(route.name, () => navbar.trigger(routeChange, { path: route.path }))); //Podczepienie pozycji menu do menu
+    if (route.display) navbar.find("ul").append(navItem(route.name, route.path, () => navbar.trigger(routeChange, { path: route.path }))); //Podczepienie pozycji menu do menu
   });
 
   return navbar;

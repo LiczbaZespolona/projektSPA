@@ -35,6 +35,10 @@ export class Router {
       const { name, component } = this.get(path); // pobranie funkcji strzałkowej z obiektu route(s), generującej tresc strony
       component().then((html) => {
         this.outlet.empty().append(html); //czyszcze stary outlet i wypełniam poprzez funkcje strzałkową
+        const li_str = "li#navItem_" + path.slice(1);
+        $(".navbar-collapse>ul>li").removeClass("present-li");
+        $(li_str).addClass("present-li");
+        console.log(li_str);
       });
     } else {
       this.outlet.empty().append(oops());
