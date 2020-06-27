@@ -1,1 +1,1 @@
-export const apiUrl = "http://tabliczka.magusz.net/api/v1/";
+export const apiUrl = "https://tabliczka.magusz.net/api/v1/";

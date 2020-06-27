@@ -13,7 +13,7 @@ export class Cookie {
   }
 
   get() {
-    let parsedValue = "";
+    let parsedValue = [];
     if (this.exists()) {
       const myCookie = this.cookie();
       const myCookieValue = myCookie.split("=")[1]; //Ciąg znaków
